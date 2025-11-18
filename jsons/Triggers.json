@@ -1,0 +1,84 @@
+[
+  {
+    "name":"UpdateCityLoyaltyPerTurn",
+    "trigger":"OnTurn",
+    "priority":10,
+    "actions":[
+      {
+        "forEachCity": {
+          "effects":[
+            {
+              "calc": {
+                "formula": "base=500; base += min(200, city.tourism * 2); base += clamp(city.culturePerTurn * 4,0,300); base += clamp(city.sciencePerTurn * 2,0,200); base += clamp(city.happiness * 8,0,150); base += city.historicalAffinityForOwner; result = clamp(base,0,1000)"
+              }
+            },
+            {"setCityLoyaltyToValue":"{result}"},
+            {"applyLoyaltyBucketBuildings":"{result}"}
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "name":"ApplyPatriotismBonuses",
+    "trigger":"OnTurn",
+    "priority":5,
+    "actions":[
+      {
+        "forEachCity":{
+          "effects":[
+            {
+              "if":{
+                "condition":"city.loyalty >= 600",
+                "then":[
+                  {"modifyCityProductionPercent":5},
+                  {"modifyOwnerUnitMaintenancePercent":-3},
+                  {"addGoldToCityFromPopulation":1}
+                ],
+                "else":[
+                  {"doNothing":true}
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "name":"OnCityCaptureApplyMenuAndTourismFreeze",
+    "trigger":"OnCityCapture",
+    "priority":20,
+    "actions":[
+      {
+        "if":{
+          "condition":"city.loyalty < 400",
+          "then":[
+            {"destroyPercentageOfBuildings":"50"},
+            {"addStatusToCity":{"status":"TourismDisabled","turns":10}},
+            {"addStatusToCity":{"status":"CapturedRecently","turns":30}}
+          ],
+          "else":[
+            {"addBuildingToCity":"City Capture Menu"},
+            {"addStatusToCity":{"status":"CaptureChoiceAvailable","turns":30}}
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "name":"SpyEffectDecayAndApplication",
+    "trigger":"OnTurn",
+    "priority":15,
+    "actions":[
+      {
+        "forEachSpyAction":{
+          "effects":[
+            {"calc":{"formula":"eff=baseEffect * (1 - city.sciencePerTurn / max(1, owner.maxSciencePerTurn)) ; eff=clamp(eff,0.1,1.0)"}},
+            {"applySpyEffectWithScale":"{eff}"}
+          ]
+        }
+      }
+    ]
+  }
+]
