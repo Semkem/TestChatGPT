@@ -1,78 +1,130 @@
 [
   {
-    "name":"Palais des Arts",
-    "type":"MuseumReplacement",
-    "productionCost":260,
-    "maintenance":3,
-    "culture":6,
-    "uniques":[
+    "name": "Palais des Arts",
+    "type": "MuseumReplacement",
+    "productionCost": 260,
+    "maintenance": 3,
+    "culture": 6,
+    "uniques": [
       "Trigger on turn start: If city does not have status [TourismDisabled], Add [6] [Tourism] to this city",
       "Add [30] Loyalty on construction"
     ],
-    "uniqueTo":"France",
-    "civilopediaText":["Grand museum: culture + city-level tourism and big loyalty boost on build."]
+    "uniqueTo": "France",
+    "civilopediaText": [
+      { "text": "Grand museum: generates culture and tourism every turn; grants large loyalty boost when built." }
+    ]
   },
   {
-    "name":"Salon Litteraire",
-    "type":"SpecialBuilding",
-    "productionCost":140,
-    "maintenance":2,
-    "culture":3,
-    "uniques":[
+    "name": "Salon Litteraire",
+    "type": "SpecialBuilding",
+    "productionCost": 140,
+    "maintenance": 2,
+    "culture": 3,
+    "uniques": [
       "Add [3] Tourism",
       "Add [2] Culture",
       "Add [10] Loyalty on construction",
-      "Passive: TourismGainScaleWithScience:10% per 50 science in city"
+      "Trigger on turn start: Add [1]% Tourism for every [50] Science in this city"
     ],
-    "uniqueTo":"France",
-    "civilopediaText":["Literary salon: culture + tourism; tourism scales with city's science (education)."]
+    "uniqueTo": "France",
+    "civilopediaText": [
+      { "text": "Literary salon: provides culture and tourism; tourism increases with city science output." }
+    ]
   },
   {
-    "name":"Academie de Mode",
-    "type":"SpecialBuilding",
-    "productionCost":200,
-    "maintenance":2,
-    "culture":4,
-    "gold":1,
-    "uniques":[
+    "name": "Academie de Mode",
+    "type": "SpecialBuilding",
+    "productionCost": 200,
+    "maintenance": 2,
+    "culture": 4,
+    "gold": 1,
+    "uniques": [
       "Add [20] Loyalty on construction",
       "Add [4] Tourism"
     ],
-    "uniqueTo":"France",
-    "civilopediaText":["Fashion academy: culture, tourism and loyalty; higher maintenance due to luxury industry."]
+    "uniqueTo": "France",
+    "civilopediaText": [
+      { "text": "Fashion academy: luxury-cultural landmark providing culture, tourism and loyalty." }
+    ]
   },
   {
-    "name":"Elysee Palace",
-    "type":"SpecialBuilding",
-    "productionCost":400,
-    "maintenance":3,
-    "culture":2,
-    "uniques":[
-      "Add [100] Loyalty on construction (capital only)",
-      "Add [5] Loyalty empire-wide on construction (temporary 50 turns)"
+    "name": "Elysee Palace",
+    "type": "SpecialBuilding",
+    "productionCost": 400,
+    "maintenance": 3,
+    "culture": 2,
+    "uniques": [
+      "City must be the capital",
+      "Add [100] Loyalty on construction",
+      "Add [5] Loyalty to all cities for [50] turns"
     ],
-    "uniqueTo":"France",
-    "civilopediaText":["Elysee Palace: large loyalty at capital and temporary empire morale boost."]
+    "uniqueTo": "France",
+    "civilopediaText": [
+      { "text": "Elysee Palace: capital landmark giving large loyalty boost and temporary morale empire-wide." }
+    ]
   },
   {
-    "name":"Industrial Engineers Corps",
-    "type":"SpecialBuilding",
-    "productionCost":220,
-    "maintenance":2,
-    "production":3,
-    "uniques":[
-      "ReduceRepairCost:25%",
-      "Add [15] Loyalty when repairing captured city buildings"
+    "name": "Industrial Engineers Corps",
+    "type": "SpecialBuilding",
+    "productionCost": 220,
+    "maintenance": 2,
+    "production": 3,
+    "uniques": [
+      "Reduce building construction cost by [10]%",
+      "Add [15] Loyalty when repairing a building in a captured city"
     ],
-    "uniqueTo":"France",
-    "civilopediaText":["Engineer corps: speeds reconstruction and gives loyalty when used to repair captured cities."]
+    "uniqueTo": "France",
+    "civilopediaText": [
+      { "text": "Engineer corps: speeds reconstruction and increases loyalty when repairing captured cities." }
+    ]
   },
 
-  // Hidden loyalty markers
-  {"name":"LoyaltyLevel_0","isHidden":true,"uniqueTo":"City","provides":{"production":-15,"science":-15,"culture":-15},"civilopediaText":["Hidden marker: loyalty bucket 0"]},
-  {"name":"LoyaltyLevel_200","isHidden":true,"uniqueTo":"City","provides":{"production":-8},"civilopediaText":["Hidden marker: loyalty bucket 200"]},
-  {"name":"LoyaltyLevel_400","isHidden":true,"uniqueTo":"City","provides":{},"civilopediaText":["Hidden marker: loyalty bucket 400"]},
-  {"name":"LoyaltyLevel_600","isHidden":true,"uniqueTo":"City","provides":{"production":5,"culture":5},"civilopediaText":["Hidden marker: loyalty bucket 600"]},
-  {"name":"LoyaltyLevel_800","isHidden":true,"uniqueTo":"City","provides":{"production":10,"culture":10,"gold":2},"civilopediaText":["Hidden marker: loyalty bucket 800"]},
-  {"name":"LoyaltyLevel_1000","isHidden":true,"uniqueTo":"City","provides":{"production":15,"culture":15,"gold":4},"civilopediaText":["Hidden marker: loyalty bucket 1000"]}
+  {
+    "name": "LoyaltyLevel_0",
+    "isHidden": true,
+    "provides": { "production": -15, "science": -15, "culture": -15 },
+    "civilopediaText": [
+      { "text": "Hidden marker for loyalty bucket 0." }
+    ]
+  },
+  {
+    "name": "LoyaltyLevel_200",
+    "isHidden": true,
+    "provides": { "production": -8 },
+    "civilopediaText": [
+      { "text": "Hidden marker for loyalty bucket 200." }
+    ]
+  },
+  {
+    "name": "LoyaltyLevel_400",
+    "isHidden": true,
+    "provides": {},
+    "civilopediaText": [
+      { "text": "Hidden marker for loyalty bucket 400." }
+    ]
+  },
+  {
+    "name": "LoyaltyLevel_600",
+    "isHidden": true,
+    "provides": { "production": 5, "culture": 5 },
+    "civilopediaText": [
+      { "text": "Hidden marker for loyalty bucket 600." }
+    ]
+  },
+  {
+    "name": "LoyaltyLevel_800",
+    "isHidden": true,
+    "provides": { "production": 10, "culture": 10, "gold": 2 },
+    "civilopediaText": [
+      { "text": "Hidden marker for loyalty bucket 800." }
+    ]
+  },
+  {
+    "name": "LoyaltyLevel_1000",
+    "isHidden": true,
+    "provides": { "production": 15, "culture": 15, "gold": 4 },
+    "civilopediaText": [
+      { "text": "Hidden marker for loyalty bucket 1000." }
+    ]
+  }
 ]
