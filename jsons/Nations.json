@@ -1,0 +1,29 @@
+[
+  {
+    "name": "France",
+    "type": "France",
+    "icon": "NationIcons/FranceIcon.png",
+    "capitalName": "Paris",
+    "startBias": "Plains",
+    "personality": "Napoleon",
+    "preferredVictory": "Culture",
+    "traits": [
+      {
+        "name": "EspritFrancais",
+        "description": "France: +25% Tourism from cultural buildings and wonders; +10% Great Person rate; unique buildings give Loyalty bonuses. Has administrative overhead (balancing).",
+        "effects": [
+          {"type":"addTourismPercent","value":25, "scope":"fromCulturalBuildings"},
+          {"type":"greatPersonRatePercent","value":10},
+          {"type":"unitStartXP","value":10},
+          {"type":"unitMaintenancePercent","value":15},
+          {"type":"buildingMaintenancePercent","value":10}
+        ]
+      }
+    ],
+    "uniqueBuildings": [
+      "Palais des Arts",
+      "Academie de Mode",
+      "Elysee Palace"
+    ]
+  }
+]
