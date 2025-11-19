@@ -9,8 +9,9 @@
     "icon": "NationIcon_France.png",
     "colors": {
       "innerColor": "#00205B",
-      "outerColor": "#7171fa"
+      "outerColor": "#B70F0A"
     },
+
     "uniqueUnits": [
       "Franc Archer",
       "Chevalier Franc",
@@ -28,6 +29,7 @@
       "Mirage 2000",
       "Commandos Marine"
     ],
+
     "uniqueBuildings": [
       "Palais des Arts",
       "Salon Litteraire",
@@ -35,6 +37,7 @@
       "Elysee Palace",
       "Industrial Engineers Corps"
     ],
+
     "civilopediaText": [
       { "text": "France has a long cultural and military history." }
     ]
